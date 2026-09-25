@@ -23,6 +23,11 @@ refine_to_lc = list([
         "name": "Library of Congress Subject Headings",
         "index": "authorities/subjects"
 
+    },
+    {
+        "id": "GenreForms",
+        "name": "Library of Congress Genre/Form Terms",
+        "index": "authorities/genreForms"
     }
 ])
 refine_to_lc.append(default_query)
@@ -43,8 +48,7 @@ metadata = {
 def preprocess(token):
     if token.endswith("."):
         token = token[:-1]
-    return token.lower().lstrip().rstrip().replace("--", " ").replace(", ", " ")\
-        .replace("\t", "").replace("\n", "")
+    return token.lstrip().rstrip().replace("--", " ").replace("\t", "").replace("\n", "")
     # may add other preprocessing steps later
 
 
